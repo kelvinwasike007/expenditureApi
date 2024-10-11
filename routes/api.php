@@ -31,6 +31,23 @@ Route::namespace('App\Http\Controllers\Api')->middleware('auth:sanctum')->group(
             Route::get("/category", "list");
             Route::delete("/category/{id}", "delete");
             
-        });       
+        });   
+        
+        Route::controller('ExpenseController')->group(function () {
+            Route::get("/", "list");
+            Route::post("/", "add");
+            Route::put("/{id}", "edit");
+            Route::delete("/{id}", "delete");
+            Route::get("/{id}", "view");
+        });
+        
+    });
+
+    Route::prefix('/budget')->controller('BudgetController')->group(function () {
+        Route::get("/", "list");
+        Route::post("/", "add");
+        Route::get("/{id}", "view");
+        Route::put("/{id}", "edit");
+        Route::delete("/{id}", "delete");
     });
 });
