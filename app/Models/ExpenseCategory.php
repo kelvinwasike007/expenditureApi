@@ -10,6 +10,8 @@ class ExpenseCategory extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['user_id', 'category'];
+
     /**
      * Get the user that owns the ExpenseCategory
      *
